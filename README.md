@@ -3,7 +3,7 @@
 [![Tests](https://github.com/theodugautier/toastizy/actions/workflows/tests.yml/badge.svg)](https://github.com/theodugautier/toastizy/actions/workflows/tests.yml)
 [![Lint](https://github.com/theodugautier/toastizy/actions/workflows/lint.yml/badge.svg)](https://github.com/theodugautier/toastizy/actions/workflows/lint.yml)
 [![npm version](https://img.shields.io/npm/v/toastizy.svg)](https://www.npmjs.com/package/toastizy)
-[![License](https://img.shields.io/npm/l/toastizy.svg)](https://github.com/theodugautier/toastizy/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![Toastizy Cover](cover.png)
 
