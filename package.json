@@ -1,6 +1,6 @@
 {
   "name": "toastizy",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A lightweight TypeScript library for toast notifications",
   "keywords": ["toast", "notification", "typescript"],
   "main": "dist/index.js",

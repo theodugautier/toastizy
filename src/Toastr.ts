@@ -78,7 +78,7 @@ export class Toastr {
    */
   private createContainer(): void {
     this.container = document.createElement('div');
-    this.container.className = 'toastr-container';
+    this.container.className = 'toastizy-container';
     document.body.appendChild(this.container);
   }
 
@@ -113,18 +113,18 @@ export class Toastr {
     if (!this.container) return;
 
     const toastElement = document.createElement('div');
-    toastElement.className = `toastr toastr-${toast.type} ${toast.options.className || ''}`;
+    toastElement.className = `toastizy toastizy-${toast.type} ${toast.options.className || ''}`;
     toastElement.setAttribute('data-toast-id', toast.id);
     toastElement.innerHTML = `
-      <div class="toastr-content">
-        <p class="toastr-title">
+      <div class="toastizy-content">
+        <p class="toastizy-title">
           ${toast.icon ? `<i class="${toast.icon}"></i>` : ''}
           ${toast.title}
         </p>
-        ${toast.description ? `<p class="toastr-description">${toast.description}</p>` : ''}
+        ${toast.description ? `<p class="toastizy-description">${toast.description}</p>` : ''}
       </div>
-      ${toast.options.closeButton ? '<button class="toastr-close">&times;</button>' : ''}
-      ${toast.options.progressBar ? '<div class="toastr-progress"></div>' : ''}
+      ${toast.options.closeButton ? '<button class="toastizy-close">&times;</button>' : ''}
+      ${toast.options.progressBar ? '<div class="toastizy-progress"></div>' : ''}
     `;
 
     this.container.appendChild(toastElement);
@@ -135,7 +135,7 @@ export class Toastr {
       }, toast.options.duration);
     }
 
-    const closeButton = toastElement.querySelector('.toastr-close');
+    const closeButton = toastElement.querySelector('.toastizy-close');
     if (closeButton) {
       closeButton.addEventListener('click', () => {
         this.removeToast(toast.id);
