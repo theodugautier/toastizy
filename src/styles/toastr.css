@@ -1,0 +1,156 @@
+.toastr-container {
+  position: fixed;
+  z-index: 9999;
+  padding: 15px;
+  max-width: 100%;
+  width: 350px;
+}
+
+.toastr-container.top-right {
+  top: 0;
+  right: 0;
+}
+
+.toastr-container.top-left {
+  top: 0;
+  left: 0;
+}
+
+.toastr-container.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+.toastr-container.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.toastr-container.top-center {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.toastr-container.bottom-center {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.toastr {
+  position: relative;
+  padding: 15px 15px 15px 50px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.4;
+  overflow: hidden;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.toastr::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.toastr-success {
+  background-color: #f0fff4;
+  border-left: 4px solid #48bb78;
+}
+
+.toastr-success::before {
+  background-color: #48bb78;
+}
+
+.toastr-error {
+  background-color: #fff5f5;
+  border-left: 4px solid #f56565;
+}
+
+.toastr-error::before {
+  background-color: #f56565;
+}
+
+.toastr-info {
+  background-color: #ebf8ff;
+  border-left: 4px solid #4299e1;
+}
+
+.toastr-info::before {
+  background-color: #4299e1;
+}
+
+.toastr-warning {
+  background-color: #fffff0;
+  border-left: 4px solid #ecc94b;
+}
+
+.toastr-warning::before {
+  background-color: #ecc94b;
+}
+
+.toastr-content {
+  margin-right: 30px;
+}
+
+.toastr-close {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.toastr-close:hover {
+  color: #333;
+}
+
+.toastr-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  animation: progress 3s linear forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
