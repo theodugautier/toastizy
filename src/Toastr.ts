@@ -42,24 +42,20 @@ export class Toastr {
 
   /**
    * Displays a new toast
-   * @param {string} title - The title to display
-   * @param {string} description - The description to display
-   * @param {ToastType} type - The toast type (info, success, warning, error)
+   * @param {Omit<Toast, 'id' | 'options'>} toastParams - The toast parameters (title, description, icon, type)
    * @param {ToastOptions} options - The toast configuration options
    */
-  public show(title: string, description: string = '', type: ToastType = 'info', options: ToastOptions = {}): void {
+  public show(toastParams: Omit<Toast, 'id' | 'options'>, options: ToastOptions = {}): void {
     const toast: Toast = {
       id: uuidv4(),
-      title,
-      description,
-      type,
+      ...toastParams,
       options: {
         duration: 3000,
         position: 'top-right',
         closeButton: true,
         progressBar: true,
-        ...options
-      }
+        ...options,
+      },
     };
 
     this.toasts.push(toast);
@@ -101,7 +97,7 @@ export class Toastr {
       'bottom-right',
       'bottom-left',
       'top-center',
-      'bottom-center'
+      'bottom-center',
     );
 
     // Add the new position class
@@ -121,8 +117,11 @@ export class Toastr {
     toastElement.setAttribute('data-toast-id', toast.id);
     toastElement.innerHTML = `
       <div class="toastr-content">
-        <p class="toastr-title">${toast.title}</p>
-        <p class="toastr-description">${toast.description}</p>
+        <p class="toastr-title">
+          ${toast.icon ? `<i class="${toast.icon}"></i>` : ''}
+          ${toast.title}
+        </p>
+        ${toast.description ? `<p class="toastr-description">${toast.description}</p>` : ''}
       </div>
       ${toast.options.closeButton ? '<button class="toastr-close">&times;</button>' : ''}
       ${toast.options.progressBar ? '<div class="toastr-progress"></div>' : ''}

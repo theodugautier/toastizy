@@ -32,7 +32,7 @@ describe('Toastr', () => {
   });
 
   it('should show a toast message', () => {
-    toastr.show('Test title', 'Test description', 'success');
+    toastr.show({ title: 'Test title', description: 'Test description', type: 'success' });
     const toast = document.querySelector('.toastr');
     expect(toast).toBeTruthy();
     expect(toast?.textContent).toContain('Test title');
@@ -40,7 +40,7 @@ describe('Toastr', () => {
   });
 
   it('should remove a toast by id', () => {
-    toastr.show('Test title', 'Test description');
+    toastr.show({ title: 'Test title', description: 'Test description', type: 'success' });
     const toast = document.querySelector('.toastr');
     const toastId = toast?.getAttribute('data-toast-id');
 
@@ -53,8 +53,8 @@ describe('Toastr', () => {
   });
 
   it('should remove multiple toasts', () => {
-    toastr.show('Message 1');
-    toastr.show('Message 2');
+    toastr.show({ title: 'Message 1', type: 'success' });
+    toastr.show({ title: 'Message 2', type: 'success' });
 
     const toasts = document.querySelectorAll('.toastr');
     expect(toasts.length).toBe(2);

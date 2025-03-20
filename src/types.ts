@@ -11,7 +11,8 @@ export interface ToastOptions {
 export interface Toast {
   id: string;
   title: string;
-  description: string;
+  description?: string;
   type: ToastType;
   options: ToastOptions;
+  icon?: string;
 }

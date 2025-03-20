@@ -1,122 +1,102 @@
-.toastr-container {
+.toastizy-container {
   position: fixed;
   z-index: 9999;
   padding: 15px;
   max-width: 100%;
-  width: 350px;
+  width: 390px;
 }
 
-.toastr-container.top-right {
+.toastizy-container.top-right {
   top: 0;
   right: 0;
 }
 
-.toastr-container.top-left {
+.toastizy-container.top-left {
   top: 0;
   left: 0;
 }
 
-.toastr-container.bottom-right {
+.toastizy-container.bottom-right {
   bottom: 0;
   right: 0;
 }
 
-.toastr-container.bottom-left {
+.toastizy-container.bottom-left {
   bottom: 0;
   left: 0;
 }
 
-.toastr-container.top-center {
+.toastizy-container.top-center {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.toastr-container.bottom-center {
+.toastizy-container.bottom-center {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.toastr {
+.toastizy-container .toastizy {
   position: relative;
-  padding: 15px 15px 15px 50px;
+  padding: 20px;
   margin-bottom: 10px;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  box-shadow: 0px 4px 2px 0px rgba(255, 231, 191, 0.05), 0px 0px 70px 0px rgba(255, 231, 191, 0.30), 0px 0px 30px 0px rgba(0, 0, 0, 0.04);
   background-color: #fff;
   color: #333;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.4;
   overflow: hidden;
-  animation: slideIn 0.3s ease-in-out;
+  animation: toastizy-slideIn 0.3s ease-in-out;
 }
 
-.toastr::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-}
-
-.toastr-success {
-  background-color: #f0fff4;
-  border-left: 4px solid #3AC26E;
-}
-
-.toastr-success::before {
+.toastizy-container .toastizy-success {
   background-color: #3AC26E;
+  color: #fff;
 }
 
-.toastr-error {
-  background-color: #fff5f5;
-  border-left: 4px solid #FB6161;
-}
-
-.toastr-error::before {
+.toastizy-container .toastizy-error {
   background-color: #f56565;
+  color: #fff;
 }
 
-.toastr-info {
-  background-color: #ebf8ff;
-  border-left: 4px solid #3A99FF;
-}
-
-.toastr-info::before {
+.toastizy-container .toastizy-info {
   background-color: #3A99FF;
+  color: #fff;
 }
 
-.toastr-warning {
-  background-color: #fffff0;
-  border-left: 4px solid #FFA656;
-}
-
-.toastr-warning::before {
+.toastizy-container .toastizy-warning {
   background-color: #FFA656;
+  color: #fff;
 }
 
-.toastr-content {
-  margin-right: 30px;
-}
-
-.toastr-title {
-  font-size: 16px;
+.toastizy-container .toastizy-title {
+  font-size: 18px;
   font-weight: 600;
+  margin-bottom: 5px;
+  margin-top: 0px;
 }
 
-.toastr-description {
-  font-size: 15px;
+.toastizy-container .toastizy-title i {
+  margin-right: 10px;
 }
-.toastr-close {
+
+.toastizy-container .toastizy-description {
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+.toastizy-container .toastizy-close {
   position: absolute;
   right: 10px;
-  top: 50%;
+  top: 20px;
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: #666;
+  color: #fff;
   font-size: 20px;
   cursor: pointer;
   padding: 0;
@@ -129,21 +109,21 @@
   transition: color 0.2s ease;
 }
 
-.toastr-close:hover {
+.toastizy-container .toastizy-close:hover {
   color: #333;
 }
 
-.toastr-progress {
+.toastizy-container .toastizy-progress {
   position: absolute;
   bottom: 0;
   left: 0;
   height: 3px;
   background-color: rgba(255, 255, 255, 0.7);
   width: 100%;
-  animation: progress 3s linear forwards;
+  animation: toastizy-progress 3s linear forwards;
 }
 
-@keyframes slideIn {
+@keyframes toastizy-slideIn {
   from {
     transform: translateX(100%);
     opacity: 0;
@@ -154,7 +134,7 @@
   }
 }
 
-@keyframes progress {
+@keyframes toastizy-progress {
   from {
     width: 100%;
   }

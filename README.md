@@ -16,9 +16,9 @@ import { Toastr } from 'toastizy';
 
 const toastr = Toastr.getInstance();
 
-toastr.show('Message de succès', 'success');
+toastr.show({ title: 'Success', type: 'success'});
 
-toastr.show('Message d\'erreur', 'error', {
+toastr.show({ title: "Error", type: 'error' }, {
   duration: 5000,
   position: 'top-right',
   closeButton: true,
