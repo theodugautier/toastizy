@@ -152,7 +152,11 @@ export class Toastr {
     this.toasts = this.toasts.filter(toast => toast.id !== id);
     const toastElement = this.container?.querySelector(`[data-toast-id="${id}"]`);
     if (toastElement) {
-      toastElement.remove();
+      toastElement.classList.add('toastizy-hide');
+      // Wait for the animation to complete before removing the element
+      setTimeout(() => {
+        toastElement.remove();
+      }, 300); // Match the animation duration
     }
   }
 }

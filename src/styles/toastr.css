@@ -52,6 +52,10 @@
   animation: toastizy-slideIn 0.3s ease-in-out;
 }
 
+.toastizy-container .toastizy.toastizy-hide {
+  animation: toastizy-slideOut 0.3s ease-in-out forwards;
+}
+
 .toastizy-container .toastizy-success {
   background-color: #3AC26E;
   color: #fff;
@@ -73,7 +77,7 @@
 }
 
 .toastizy-container .toastizy-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 5px;
   margin-top: 0px;
@@ -86,7 +90,7 @@
 .toastizy-container .toastizy-description {
   margin-top: 5px;
   margin-bottom: 0;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .toastizy-container .toastizy-close {
@@ -131,6 +135,17 @@
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@keyframes toastizy-slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
   }
 }
 
