@@ -63,16 +63,16 @@
 
 .toastr-success {
   background-color: #f0fff4;
-  border-left: 4px solid #48bb78;
+  border-left: 4px solid #3AC26E;
 }
 
 .toastr-success::before {
-  background-color: #48bb78;
+  background-color: #3AC26E;
 }
 
 .toastr-error {
   background-color: #fff5f5;
-  border-left: 4px solid #f56565;
+  border-left: 4px solid #FB6161;
 }
 
 .toastr-error::before {
@@ -81,26 +81,34 @@
 
 .toastr-info {
   background-color: #ebf8ff;
-  border-left: 4px solid #4299e1;
+  border-left: 4px solid #3A99FF;
 }
 
 .toastr-info::before {
-  background-color: #4299e1;
+  background-color: #3A99FF;
 }
 
 .toastr-warning {
   background-color: #fffff0;
-  border-left: 4px solid #ecc94b;
+  border-left: 4px solid #FFA656;
 }
 
 .toastr-warning::before {
-  background-color: #ecc94b;
+  background-color: #FFA656;
 }
 
 .toastr-content {
   margin-right: 30px;
 }
 
+.toastr-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.toastr-description {
+  font-size: 14px;
+}
 .toastr-close {
   position: absolute;
   right: 10px;

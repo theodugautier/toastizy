@@ -2,7 +2,7 @@ import { Toast, ToastOptions, ToastType } from './types';
 import { v4 as uuidv4 } from 'uuid';
 
 /**
- * Classe singleton pour gérer l'affichage des notifications toast
+ * Singleton class to manage toast notifications display
  * @class Toastr
  */
 export class Toastr {
@@ -11,7 +11,7 @@ export class Toastr {
   private container: HTMLElement | null = null;
 
   /**
-   * Constructeur privé pour le pattern Singleton
+   * Private constructor for Singleton pattern
    * @private
    */
   private constructor() {
@@ -19,8 +19,8 @@ export class Toastr {
   }
 
   /**
-   * Obtient l'instance unique de Toastr
-   * @returns {Toastr} L'instance unique de Toastr
+   * Gets the unique instance of Toastr
+   * @returns {Toastr} The unique instance of Toastr
    */
   public static getInstance(): Toastr {
     if (!Toastr.instance) {
@@ -30,8 +30,8 @@ export class Toastr {
   }
 
   /**
-   * Récupère l'ID du dernier toast affiché
-   * @returns {string | null} L'ID du dernier toast ou null si aucun toast n'est affiché
+   * Gets the ID of the last displayed toast
+   * @returns {string | null} The ID of the last toast or null if no toast is displayed
    */
   public getCurrentToastId(): string | null {
     if (this.toasts.length === 0) {
@@ -41,15 +41,17 @@ export class Toastr {
   }
 
   /**
-   * Affiche un nouveau toast
-   * @param {string} message - Le message à afficher
-   * @param {ToastType} type - Le type de toast (info, success, warning, error)
-   * @param {ToastOptions} options - Les options de configuration du toast
+   * Displays a new toast
+   * @param {string} title - The title to display
+   * @param {string} description - The description to display
+   * @param {ToastType} type - The toast type (info, success, warning, error)
+   * @param {ToastOptions} options - The toast configuration options
    */
-  public show(message: string, type: ToastType = 'info', options: ToastOptions = {}): void {
+  public show(title: string, description: string = '', type: ToastType = 'info', options: ToastOptions = {}): void {
     const toast: Toast = {
       id: uuidv4(),
-      message,
+      title,
+      description,
       type,
       options: {
         duration: 3000,
@@ -66,8 +68,8 @@ export class Toastr {
   }
 
   /**
-   * Supprime un toast spécifique
-   * @param {string} id - L'ID du toast à supprimer
+   * Removes a specific toast
+   * @param {string} id - The ID of the toast to remove
    */
   public remove(id: string): void {
     this.toasts = this.toasts.filter(toast => toast.id !== id);
@@ -75,7 +77,7 @@ export class Toastr {
   }
 
   /**
-   * Crée le conteneur principal des toasts
+   * Creates the main toast container
    * @private
    */
   private createContainer(): void {
@@ -85,14 +87,14 @@ export class Toastr {
   }
 
   /**
-   * Met à jour la position du conteneur des toasts
-   * @param {ToastOptions['position']} position - La nouvelle position
+   * Updates the position of the toast container
+   * @param {ToastOptions['position']} position - The new position
    * @private
    */
   private updateContainerPosition(position: ToastOptions['position'] = 'top-right'): void {
     if (!this.container) return;
 
-    // Supprimer toutes les classes de position existantes
+    // Remove all existing position classes
     this.container.classList.remove(
       'top-right',
       'top-left',
@@ -102,13 +104,13 @@ export class Toastr {
       'bottom-center'
     );
 
-    // Ajouter la nouvelle classe de position
+    // Add the new position class
     this.container.classList.add(position);
   }
 
   /**
-   * Affiche un toast dans le DOM
-   * @param {Toast} toast - L'objet toast à afficher
+   * Displays a toast in the DOM
+   * @param {Toast} toast - The toast object to display
    * @private
    */
   private renderToast(toast: Toast): void {
@@ -118,7 +120,10 @@ export class Toastr {
     toastElement.className = `toastr toastr-${toast.type} ${toast.options.className || ''}`;
     toastElement.setAttribute('data-toast-id', toast.id);
     toastElement.innerHTML = `
-      <div class="toastr-content">${toast.message}</div>
+      <div class="toastr-content">
+        <p class="toastr-title">${toast.title}</p>
+        <p class="toastr-description">${toast.description}</p>
+      </div>
       ${toast.options.closeButton ? '<button class="toastr-close">&times;</button>' : ''}
       ${toast.options.progressBar ? '<div class="toastr-progress"></div>' : ''}
     `;
@@ -140,8 +145,8 @@ export class Toastr {
   }
 
   /**
-   * Supprime un toast du DOM
-   * @param {string} id - L'ID du toast à supprimer
+   * Removes a toast from the DOM
+   * @param {string} id - The ID of the toast to remove
    * @private
    */
   private removeToast(id: string): void {

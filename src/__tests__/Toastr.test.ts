@@ -28,14 +28,15 @@ describe('Toastr', () => {
   });
 
   it('should show a toast message', () => {
-    toastr.show('Test message', 'success');
+    toastr.show('Test title', 'Test description', 'success');
     const toast = document.querySelector('.toastr');
     expect(toast).toBeTruthy();
-    expect(toast?.textContent).toContain('Test message');
+    expect(toast?.textContent).toContain('Test title');
+    expect(toast?.textContent).toContain('Test description');
   });
 
   it('should remove a toast by id', () => {
-    toastr.show('Test message');
+    toastr.show('Test title', 'Test description');
     const toast = document.querySelector('.toastr');
     const toastId = toast?.getAttribute('data-toast-id');
 

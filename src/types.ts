@@ -10,7 +10,8 @@ export interface ToastOptions {
 
 export interface Toast {
   id: string;
-  message: string;
+  title: string;
+  description: string;
   type: ToastType;
   options: ToastOptions;
 }
