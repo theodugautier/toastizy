@@ -1,11 +1,13 @@
-# Toastr
+# Toastizy
+
+![Toastizy Cover](cover.png)
 
 Une librairie TypeScript pour afficher des notifications toastr
 
 ## Utilisation
 
 ```typescript
-import { Toastr } from 'toastr';
+import { Toastr } from 'toastizy';
 
 const toastr = Toastr.getInstance();
 

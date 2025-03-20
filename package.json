@@ -1,5 +1,5 @@
 {
-  "name": "toastr",
+  "name": "toastizy",
   "version": "1.0.0",
   "description": "A lightweight TypeScript library for toast notifications",
   "keywords": ["toast", "notification", "typescript"],
