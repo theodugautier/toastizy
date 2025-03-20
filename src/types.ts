@@ -1,4 +1,4 @@
-export type ToastType = 'success' | 'error' | 'info' | 'warning';
+type ToastType = 'success' | 'error' | 'info' | 'warning';
 
 export interface ToastOptions {
   duration?: number;

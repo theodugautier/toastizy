@@ -1,4 +1,4 @@
-import { Toast, ToastOptions, ToastType } from './types';
+import { Toast, ToastOptions } from './types';
 import { v4 as uuidv4 } from 'uuid';
 
 /**
