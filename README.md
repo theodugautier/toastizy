@@ -1,5 +1,10 @@
 # Toastizy
 
+[![Tests](https://github.com/theodugautier/toastizy/actions/workflows/tests.yml/badge.svg)](https://github.com/theodugautier/toastizy/actions/workflows/tests.yml)
+[![Lint](https://github.com/theodugautier/toastizy/actions/workflows/lint.yml/badge.svg)](https://github.com/theodugautier/toastizy/actions/workflows/lint.yml)
+[![npm version](https://img.shields.io/npm/v/toastizy.svg)](https://www.npmjs.com/package/toastizy)
+[![License](https://img.shields.io/npm/l/toastizy.svg)](https://github.com/theodugautier/toastizy/blob/main/LICENSE)
+
 ![Toastizy Cover](cover.png)
 
 Une librairie TypeScript pour afficher des notifications toastr

@@ -1,11 +1,15 @@
 import { Toastr } from '../Toastr';
 
+interface ToastrWithInstance extends Toastr {
+  instance: Toastr | null;
+}
+
 describe('Toastr', () => {
   let toastr: Toastr;
 
   beforeEach(() => {
     // Reset singleton instance
-    (Toastr as any).instance = null;
+    (Toastr as unknown as ToastrWithInstance).instance = null;
     toastr = Toastr.getInstance();
   });
 
@@ -13,7 +17,7 @@ describe('Toastr', () => {
     // Clean up DOM
     document.body.innerHTML = '';
     // Reset singleton instance
-    (Toastr as any).instance = null;
+    (Toastr as unknown as ToastrWithInstance).instance = null;
   });
 
   it('should create a singleton instance', () => {

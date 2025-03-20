@@ -6,6 +6,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "style": "dist/toastr.css",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc && cp src/styles/toastr.css dist/",
     "test": "jest",
