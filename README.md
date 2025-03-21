@@ -9,27 +9,62 @@
 
 Une librairie TypeScript pour afficher des notifications toastr
 
-## Utilisation
+## Installation
 
-with cdn :
-```html
- <script src="https://unpkg.com/toastizy@1.0.5/dist/umd/index.js"></script>
+### Via NPM
+
+```bash
+npm install toastizy
+
+yarn add toastizy
 ```
 
-with module :
+### Via CDN
+
+Ajoutez les fichiers CSS et JavaScript dans votre HTML :
+
+```html
+<!-- CSS -->
+<link rel="stylesheet" href="https://unpkg.com/toastizy@1.1.0/dist/css/toastizy.min.css">
+
+<!-- JavaScript -->
+<script src="https://unpkg.com/toastizy@1.1.0/dist/toastizy.min.js"></script>
+```
+
+## Utilisation
+
+### Avec les modules ES
+
 ```typescript
 import { Toastr } from 'toastizy';
+import 'toastizy/dist/toastizy.min.css';
 
 const toastr = Toastr.getInstance();
 
+// Notification simple
 toastr.show({ title: 'Success', type: 'success'});
 
-toastr.show({ title: "Error", type: 'error' }, {
+// Notification avec options
+toastr.show({
+  title: "Error",
+  type: 'error',
+  description: 'Une erreur est survenue'
+}, {
   duration: 5000,
   position: 'top-right',
   closeButton: true,
   progressBar: true
 });
+```
+
+### Avec le CDN
+
+```html
+<script>
+  const toastr = Toastizy.Toastr.getInstance();
+
+  toastr.show({ title: 'Success', type: 'success'});
+</script>
 ```
 
 ## Types de notifications
