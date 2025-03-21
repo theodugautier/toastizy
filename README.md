@@ -11,6 +11,12 @@ Une librairie TypeScript pour afficher des notifications toastr
 
 ## Utilisation
 
+with cdn :
+```html
+ <script src="https://unpkg.com/toastizy@1.0.5/dist/umd/index.js"></script>
+```
+
+with module :
 ```typescript
 import { Toastr } from 'toastizy';
 
