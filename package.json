@@ -1,8 +1,12 @@
 {
   "name": "toastizy",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A lightweight TypeScript library for toast notifications",
-  "keywords": ["toast", "notification", "typescript"],
+  "keywords": [
+    "toast",
+    "notification",
+    "typescript"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "style": "dist/toastr.css",
@@ -10,11 +14,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc && cp src/styles/toastr.css dist/",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src/**/*.ts",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "build": "npm run build:cjs && npm run build:umd && cp src/styles/toastr.css dist/",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:umd": "tsc -p tsconfig.umd.json"
   },
   "author": "SideCare",
   "license": "MIT",
