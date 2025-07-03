@@ -41,6 +41,22 @@ export class Toastr {
   }
 
   /**
+   * Checks if there are any active toasts
+   * @returns {boolean} True if there are active toasts, false otherwise
+   */
+  public hasActiveToasts(): boolean {
+    return this.toasts.length > 0;
+  }
+
+  /**
+   * Gets the number of active toasts
+   * @returns {number} The number of active toasts
+   */
+  public getActiveToastsCount(): number {
+    return this.toasts.length;
+  }
+
+  /**
    * Displays a new toast
    * @param {Omit<Toast, 'id' | 'options'>} toastParams - The toast parameters (title, description, icon, type)
    * @param {ToastOptions} options - The toast configuration options
@@ -59,6 +75,7 @@ export class Toastr {
     };
 
     this.toasts.push(toast);
+    this.toggleContainer(); // Show container when toast is added
     this.updateContainerPosition(toast.options.position);
     this.renderToast(toast);
   }
@@ -73,13 +90,36 @@ export class Toastr {
   }
 
   /**
+   * Forces an update of the container visibility
+   * @public
+   */
+  public updateContainerVisibility(): void {
+    this.toggleContainer();
+  }
+
+  /**
    * Creates the main toast container
    * @private
    */
   private createContainer(): void {
     this.container = document.createElement('div');
     this.container.className = 'toastizy-container';
+    this.container.style.display = 'none'; // Initially hidden
     document.body.appendChild(this.container);
+  }
+
+  /**
+   * Shows or hides the container based on active toasts
+   * @private
+   */
+  private toggleContainer(): void {
+    if (!this.container) return;
+
+    if (this.toasts.length > 0) {
+      this.container.style.display = 'block';
+    } else {
+      this.container.style.display = 'none';
+    }
   }
 
   /**
@@ -87,9 +127,8 @@ export class Toastr {
    * @param {ToastOptions['position']} position - The new position
    * @private
    */
-  private updateContainerPosition(position: ToastOptions['position'] = 'top-right'): void {
+  private updateContainerPosition(position: ToastOptions['position'] | null = 'top-right'): void {
     if (!this.container) return;
-
     // Remove all existing position classes
     this.container.classList.remove(
       'top-right',
@@ -99,6 +138,9 @@ export class Toastr {
       'top-center',
       'bottom-center',
     );
+
+    // returns if no position is provided (reset position)
+    if (!position) return;
 
     // Add the new position class
     this.container.classList.add(position);
@@ -156,7 +198,10 @@ export class Toastr {
       // Wait for the animation to complete before removing the element
       setTimeout(() => {
         toastElement.remove();
+        this.toggleContainer(); // Hide container if no more toasts
       }, 300); // Match the animation duration
+    } else {
+      this.toggleContainer(); // Hide container if no more toasts
     }
   }
 }
